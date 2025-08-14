@@ -13,7 +13,7 @@ APPROVED_BREEDS = [
 
 
 class Dog:
-    def __init__(self, name="fido", breed="Human"):
+    def __init__(self, name="fido", breed="Beagle"):
         self.name = name
         self.breed = breed
 
@@ -31,4 +31,10 @@ class Dog:
     @property
     def breed(self):
         return self._breed 
+    
     @breed.setter
+    def breed(self,value):
+        if value in APPROVED_BREEDS:
+            self._breed = value
+        else:
+            print("Breed must be in list of approved breeds.")
